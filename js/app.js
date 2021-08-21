@@ -25,9 +25,9 @@ function setPriceButton(setPriceButtonId, priceFieldId) {
 // Calculate SubTotal & Total Price
 function totalPrice() {
     const bestPrice = getPrice('best-price');
-    const extraMemoryCost = getPrice('extra-memory-cost');;
-    const extraStorageCost = getPrice('extra-storage-cost');;
-    const deliveryCharge = getPrice('delivery-charge');;
+    const extraMemoryCost = getPrice('extra-memory-cost');
+    const extraStorageCost = getPrice('extra-storage-cost');
+    const deliveryCharge = getPrice('delivery-charge');
 
     const subTotalPrice = bestPrice + extraMemoryCost + extraStorageCost + deliveryCharge;
 
@@ -43,7 +43,7 @@ function totalPrice() {
 // Apply Promo Button
 function applyPromoButton() {
     const promoButton = getElement('apply-promo-button');
-    const promoInputField = getElement('promo-input-field')
+    const promoInputField = getElement('promo-input-field');
     const totalPriceField = getElement('total-price');
 
     promoButton.addEventListener('click', function () {
@@ -59,7 +59,7 @@ function applyPromoButton() {
     });
 }
 
-// Function Calling 
+// Call setPriceButton by Parameters
 setPriceButton('memory-8gb-button', 'extra-memory-cost');
 setPriceButton('memory-16gb-button', 'extra-memory-cost');
 setPriceButton('storage-256gb-button', 'extra-storage-cost');
@@ -67,4 +67,5 @@ setPriceButton('storage-512gb-button', 'extra-storage-cost');
 setPriceButton('storage-1t-button', 'extra-storage-cost');
 setPriceButton('free-delivery-button', 'delivery-charge');
 setPriceButton('paid-delivery-button', 'delivery-charge');
+// Call applyPromoButton
 applyPromoButton();
