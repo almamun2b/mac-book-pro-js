@@ -35,8 +35,10 @@ function setTotalPrice() {
 function setPriceButton(setPriceButtonId, priceFieldId) {
     const priceButton = getElement(setPriceButtonId);
     const priceField = getElement(priceFieldId);
+    const errorMessage = getElement('error');
 
     priceButton.addEventListener('click', function () {
+        errorMessage.classList.add('d-none');
         const priceValue = priceButton.value;
         priceField.innerText = priceValue;
         setTotalPrice();
@@ -48,12 +50,17 @@ function applyPromoButton() {
     const promoButton = getElement('apply-promo-button');
     const promoInputField = getElement('promo-input-field');
     const totalPriceField = getElement('total-price');
+    const errorMessage = getElement('error');
 
     promoButton.addEventListener('click', function () {
         const promoInputValue = promoInputField.value.toLowerCase();
         let subTotalPrice = subTotal();
         if (promoInputValue == 'stevekaku') {
             subTotalPrice = subTotalPrice * 0.8;
+            errorMessage.classList.add('d-none');
+        }
+        else {
+            errorMessage.classList.remove('d-none');
         }
         totalPriceField.innerText = subTotalPrice;
         promoInputField.value = '';
